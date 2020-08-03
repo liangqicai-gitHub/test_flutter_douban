@@ -1,7 +1,8 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:testdouban/feature/home/home_movie_item.dart';
 import 'package:testdouban/models/api_response_entity.dart';
-import 'package:testdouban/service/home_service.dart';
+import 'package:testdouban/views/dash_line.dart';
+
 
 class HomePageContent extends StatefulWidget {
   @override
@@ -10,28 +11,34 @@ class HomePageContent extends StatefulWidget {
 
 class _HomePageContentState extends State<HomePageContent> {
 
+  List<ApiResponseResult> movies = List<ApiResponseResult>();
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
+    var newms = List<ApiResponseResult>();
+    for (int i = 0; i < 1; i++) {
+      final s = ApiResponseResult();
+      newms.add(s);
+    }
 
-    ApiResponseEntity ss = ApiResponseEntity();
-    ss.result = {};
-    
-    print('this is ${ss.converedResultAs<double>()}');
+    setState(() {
+      movies.addAll(newms);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+//    return LQCDashLine();
     return ListView.builder(
-      itemCount: 30,
+      itemCount: movies.length,
       itemBuilder: (ctx, index) {
-        return ListTile(
-          title: Text("index${index + 1}"),
-          subtitle: Text("subtitle${index + 1}"),
-        );
+        return HomeMovieItem(movies[index]);
       },
     );
   }
+
+
+
 }

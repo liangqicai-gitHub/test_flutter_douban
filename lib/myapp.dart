@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:testdouban/feature/datashare/share_globalkey.dart';
+import 'package:testdouban/feature/gesture/gesture_test_page.dart';
 import 'package:testdouban/feature/home/home_page.dart';
 import 'package:testdouban/feature/message/message_page.dart';
 
@@ -10,7 +12,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  final _page = [HomePage(),MessagePage()];
+  final _page = [HomePage(),MessagePage(),ShareGlobalPage(),GestureTestPage()];
   final _bottomBars = [
     BottomNavigationBarItem(
       title: Text("首页"),
@@ -20,7 +22,14 @@ class _MyAppState extends State<MyApp> {
       title: Text("消息"),
       icon: Icon(Icons.message),
     ),
-
+    BottomNavigationBarItem(
+      title: Text("状态管理1"),
+      icon: Icon(Icons.star),
+    ),
+    BottomNavigationBarItem(
+      title: Text('手势'),
+      icon: Icon(Icons.gesture),
+    ),
   ];
   var _index = 0;
 

@@ -6,21 +6,14 @@ import 'myapp.dart';
 
 void main() {
   runApp(
-//    MultiProvider(
-//      providers: [
-//        ChangeNotifierProvider(
-//          create: (BuildContext ctx) {
-//            return HYCounterViewModel();
-//          },
-//        )
-//      ],
-//      child: MyApp(),
-//    )
-
-    ChangeNotifierProvider(
-      create: (BuildContext ctx) {
-        return HYCounterViewModel();
-      },
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (BuildContext ctx) {
+            return HYCounterViewModel();
+          },
+        )
+      ],
       child: MyApp(),
     )
   );
